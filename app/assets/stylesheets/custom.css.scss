@@ -1,0 +1,116 @@
+body{
+	font-family: 'proxima-nova', 'Proxima Nova', sans-serif;
+}
+
+header{
+	height: 70px;
+	border-bottom: 1px solid grey;
+}
+
+.post-container{
+	margin-top: 5px;
+}
+
+.post{
+	padding: 13px 12px;
+	line-height: 17px;
+}
+
+
+.post:hover{
+	background: #fcf5e2;
+}
+
+.search-box{
+	float:right;
+	padding-top:10px;
+}
+
+.post-user-image{
+	float: right;
+	display: inline-block;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+}
+
+
+.url{
+	display: inline-block;
+	padding-top: 3px;
+}
+
+.productname{
+	color: #534540;
+	font-size: 20px;
+	font-weight: 600;
+	margin: 6px 2px 0 12px;
+}
+
+.producttagline{
+	color: #999999;
+font-size: 17px;
+margin: 5px 0 0 12px;
+display: block;
+}
+
+.upvote{
+	display: inline-block;
+	border-radius: 3px;
+	float: left;
+	width: 30px;
+	height: 42px;
+	text-align: center;
+	cursor: pointer;
+	background: #efefef;
+	padding: 0 1px;
+	border-bottom: 1px solid #bbbbbb;
+}
+
+.upvote .upvote-btn {
+position: relative;
+bottom: 5px;
+display: inline-block;
+width: 0px;
+height: 0px;
+border-bottom: 12px solid #534540;
+border-left: 8px solid transparent;
+border-right: 8px solid transparent;
+border-top: 12px solid transparent;
+-webkit-transition: border-color 0.1s ease-in;
+-moz-transition: border-color 0.1s ease-in;
+-o-transition: border-color 0.1s ease-in;
+transition: border-color 0.1s ease-in;
+}
+
+
+.vote-count{
+	font-size: 12px;
+display: block;
+position: relative;
+bottom: 4px;
+color: #534540;
+font-weight: 700;
+-webkit-transition: color 0.1s ease-in;
+-moz-transition: color 0.1s ease-in;
+-o-transition: color 0.1s ease-in;
+transition: color 0.1s ease-in;
+}
+
+
+.upvote:hover .upvote-btn{
+	border-bottom: 12px solid #da552f;
+    opacity: 0.7;
+}
+
+
+.links{
+	float:right;
+	dispaly:inline-block;
+}
+
+.voted {
+	border-bottom: 12px solid #da552f;
+	background: #da552f;
+	opacity: 0.7;
+}

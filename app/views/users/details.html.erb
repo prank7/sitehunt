@@ -1,0 +1,4 @@
+<%= form_tag({ controller: 'users', action: 'details' }, :method => "post", id: "email-form") do %>
+  <%= text_field_tag :email, params[:email], placeholder: "Your Email-id" %>
+  <%= submit_tag "Save", :name => nil %>
+<% end %>
