@@ -13,6 +13,7 @@ Sitehunt::Application.routes.draw do
   resources :products do
     member do
       put :upvote
+      put :comment
     end
   end
 

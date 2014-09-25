@@ -9,23 +9,48 @@
 			<div class="posts-today">
 				<h2 style="margin-bottom:27px;"> TODAY </h2>
 				<% @products.each do |product| %>
-					<div class="post">
-						
-							<div class="upvote" id=<%=product.id%>>
-							<%= link_to "", upvote_product_path(product.id), remote: true, :method => 'put', class: "upvote-btn" %>
-								<span class="vote-count"><%= Vote.find_by_sql("SELECT * From votes where product_id = #{product.id}").count %></span>
-							</div> 
-						
-						<div class="url">
-							<span class="productname"><%= link_to product.productname, "http://#{product.url}", target: "black" %></span>
-							<span class="producttagline"><%= product.description %></span>
+						<div class="post">
+								<div class="upvote" id=<%=product.id%>>
+								<%= link_to "", upvote_product_path(product.id), remote: true, :method => 'put', class: "upvote-btn" %>
+									<span class="vote-count"><%= Vote.find_by_sql("SELECT * From votes where product_id = #{product.id}").count %></span>
+								</div> 
+							
+							<div class="url">
+								<span class="productname"><%= link_to product.productname, "http://#{product.url}", target: "black" %></span>
+								<span class="producttagline"><%= product.description %></span>
+							</div>
+							<span class="post-user-image">
+								<%= link_to(image_tag(product.user.image, class: "post-user-image"), product.user.username) %>
+							</span>
+							<%= link_to 'comments', comment_product_path(product.id), remote: true, method: 'put' %>
 						</div>
-						<span class="post-user-image">
-							<%= link_to(image_tag(product.user.image, class: "post-user-image"), product.user.username) %>
-						</span>
-					</div>
 				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+<div class="comments hidden-comments">
+	<div class="left-half">
+
+	</div>
+	<div class="right-half">
+		
+	</div>
+</div>
+
+<script>
+$('.post').click(function(){
+	var id = $(this).find('upvote').attr("id");
+   $.ajax({
+   		 type: "",
+      url: "",
+     
+   });
+});
+
+$('.left-half').click(function(){
+	$('.comments').addClass('hidden-comments');
+});
+</script>

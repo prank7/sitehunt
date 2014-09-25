@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821045502) do
+ActiveRecord::Schema.define(version: 20140925161223) do
 
   create_table "comments", force: true do |t|
-    t.integer  "product_id"
     t.integer  "user_id"
-    t.text     "description"
+    t.text     "title"
+    t.integer  "product_id"
     t.integer  "votes"
     t.datetime "created_at"
     t.datetime "updated_at"

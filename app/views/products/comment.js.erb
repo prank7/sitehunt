@@ -1,0 +1,2 @@
+$('.comments').removeClass('hidden-comments');
+$('.right-half').html("<%= escape_javascript render(file: '/products/_comments.html.erb', comments: @comments) %>");

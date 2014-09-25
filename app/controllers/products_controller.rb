@@ -37,6 +37,13 @@ class ProductsController < ApplicationController
     end
   end
 
+  def comment
+    @product_id = params[:id]
+    @comments = Comment.where(product_id: @product_id)
+    respond_to do |format|
+      format.js
+    end
+  end
 
   def product_params
     params.require(:product).permit(:productname, :url, :description)
