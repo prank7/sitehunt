@@ -28,7 +28,6 @@ class UsersController < ApplicationController
       email = params[:email]
       @user = current_user
       @user.update(email: email)
-      UserMailer.welcome(current_user).deliver
       redirect_to '/'
     end
   end

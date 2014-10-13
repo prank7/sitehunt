@@ -35,8 +35,8 @@ Sitehunt::Application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'example.com',
-    user_name:            'prashant.abhishek7@gmail.com',
-    password:             'makeventure77',
+    user_name:            '',
+    password:             '',
     authentication:       'plain',
     enable_starttls_auto: true  }
 end
