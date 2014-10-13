@@ -146,5 +146,37 @@ z-index:100;
 	background-color:white;
 	height: 100%;	
 	position:fixed; 
-	border-left: 2px solid grey;
+	box-shadow: 0px 0px 0px 2px grey;
+}
+
+.who-posted{
+	padding: 10px 10px;
+	top: 0;
+	background-color: #fcf5e2;	
+}
+
+.post-user-comment-image{
+	display: inline-block;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+}
+
+.product-name-comment-section{
+	padding: 2px 6px;
+	background-color: #fcf5e2;	
+}
+
+.red-color{
+color: #da552f;
+}
+
+.comment-title{
+	color: grey;
+	padding: 10px 0px 0px 30px;
+	font-size: 1.5em;
+}
+
+.all-comments{
+	padding-left: 10px;
 }

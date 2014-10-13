@@ -1,3 +1,23 @@
+<% product = Product.find(@product_id) %>
+
+<div class="who-posted">
+<%= link_to(image_tag(product.user.image, class: "post-user-comment-image"), product.user.username) %>  Posted By <%= product.user.username %>
+</div>
+
+<div class="product-name-comment-section">
+	<h2 class="red-color"><%= product.productname %></h3>
+	<h4><%= product.description %></h4>
+</div>
+
+<div class="all-comments">
+<h2 class="comment-count"><%= @comments.count %> Comments</h2>
+<hr>
+
 <% @comments.each do |comment| %>
-	<%= comment.title %>
+	<%= link_to(image_tag(comment.user.image, class: "post-user-comment-image"), product.user.username) %>
+	<span class="red-color"><%= comment.user.username %></span> 
+
+	<div class="comment-title"><%= comment.title %></div>
+	<hr>
 <%end %>
+</div>
