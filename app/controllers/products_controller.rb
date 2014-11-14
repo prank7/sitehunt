@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
-	before_action :redirect_unless_signed_in, only: [:create, :destroy]
-	
-	def index
-  	@products = Product.all
+  before_action :redirect_unless_signed_in, only: [:create, :destroy]
+  
+  def index
+    @products = Product.all
   end
 
   def show
@@ -10,11 +10,11 @@ class ProductsController < ApplicationController
   end
 
   def new
-		@product = Product.new
+    @product = Product.new
   end
 
   def create
-	 @product = current_user.products.build(product_params)
+   @product = current_user.products.build(product_params)
 
     respond_to do |format|
       if @product.save
@@ -25,13 +25,13 @@ class ProductsController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-	end
+  end
 
   def upvote
     @productid = params[:id]
     service = UpvoteService.new(current_user.id, @productid).call
     @vote_number = service
-    # VoteQuery.new(product_id: @productid).total_coun
+    # VoteQuery.new(product_id: @productid).total_count
     respond_to do |format|
       format.js
     end
@@ -42,6 +42,19 @@ class ProductsController < ApplicationController
     @comments = Comment.where(product_id: @product_id)
     respond_to do |format|
       format.js
+    end
+  end
+
+  def commentcreate
+    @comment = Comment.new(title: params['title'], product_id: params['product_id'], user_id: current_user.id )
+    @product_id = params[:id]
+    @comments = Comment.where(product_id: @product_id)
+    respond_to do |format|
+      if @comment.save
+        format.js
+      else
+        redirect_to 'root_url'
+      end
     end
   end
 

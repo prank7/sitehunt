@@ -1,14 +1,37 @@
-<%= notice %>
-
-<div class= "container">
+<% last = Product.last.id %>
+<% @productyesterday = Product.find([1,2]).reverse %>
+<% @products = Product.limit(100).offset(2).reverse %>
+<%= content_tag(:span, notice, class: 'col-md-offset-5 notice') if notice %>
+<div class= "container product-listing">
 	<div class="wrapper col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 col-sm-12">
 		<div class="search-box">
-			<input type="text" name="search" placeholder= "search for products"></input>
+			
 		</div>
 		<div class= "post-container">
 			<div class="posts-today">
 				<h2 style="margin-bottom:27px;"> TODAY </h2>
 				<% @products.each do |product| %>
+						<div class="post">
+								<div class="upvote" id=<%=product.id%>>
+								<%= link_to "", upvote_product_path(product.id), remote: true, :method => 'put', class: "upvote-btn" %>
+									<span class="vote-count"><%= Vote.find_by_sql("SELECT * From votes where product_id = #{product.id}").count %></span>
+								</div> 
+							
+							<div class="url">
+								<span class="productname"><%= link_to product.productname, "http://#{product.url}", target: "black" %></span>
+								<span class="producttagline"><%= product.description %></span>
+							</div>
+							<span class="post-user-image">
+								<%= link_to(image_tag(product.user.image, class: "post-user-image"), product.user.username) %>
+							</span>
+							<%= link_to 'comments', comment_product_path(product.id), remote: true, method: 'put' %>
+						</div>
+				<% end %>
+			</div>
+		</div>
+		<div class= "post-container">
+			<div class="posts-today"><h2> YESTERDAY </h2>
+				<% @productyesterday.each do |product| %>
 						<div class="post">
 								<div class="upvote" id=<%=product.id%>>
 								<%= link_to "", upvote_product_path(product.id), remote: true, :method => 'put', class: "upvote-btn" %>

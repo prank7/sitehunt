@@ -14,6 +14,7 @@ Sitehunt::Application.routes.draw do
     member do
       put :upvote
       put :comment
+      post :commentcreate
     end
   end
 

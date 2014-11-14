@@ -1,44 +1,12 @@
 <p id="notice"><%= notice %></p>
+<div class="col-md-offset-3 col-md-6 user-info" style="align-text: center; background-color:#fcf5e2;">
 
-<p>
-  <strong>Provider:</strong>
-  <%= @user.provider %>
-</p>
+  <%= link_to(image_tag(@user.image, class: "show-user-image")) %>
 
-<p>
-  <strong>Uid:</strong>
-  <%= @user.uid %>
-</p>
+  <%= @user.name %><br>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @user.image %>
-</p>
-
-<p>
-  <strong>Username:</strong>
+  <strong>Twitter Username:</strong>
   <%= @user.username %>
-</p>
+<br>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @user.description %>
-</p>
-
-<p>
-  <strong>Token:</strong>
-  <%= @user.token %>
-</p>
-
-<p>
-  <strong>Secret:</strong>
-  <%= @user.secret %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140925161223) do
   create_table "products", force: true do |t|
     t.integer  "user_id"
     t.string   "productname"
-    t.integer  "votes"
+    t.integer  "votes",       default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url"

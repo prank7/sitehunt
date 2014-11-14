@@ -5,19 +5,37 @@
 </div>
 
 <div class="product-name-comment-section">
-	<h2 class="red-color"><%= product.productname %></h3>
+	<h2 class="red-color"><%= product.productname %></h2>
 	<h4><%= product.description %></h4>
 </div>
 
-<div class="all-comments">
 <h2 class="comment-count"><%= @comments.count %> Comments</h2>
 <hr>
 
-<% @comments.each do |comment| %>
-	<%= link_to(image_tag(comment.user.image, class: "post-user-comment-image"), product.user.username) %>
-	<span class="red-color"><%= comment.user.username %></span> 
+<!-- Add comment -->
+<% if signed_in? %>
+	<div class="row all-comments">
+		<%= form_tag({ :controller => :products, :action => :commentcreate }, { :remote => true }) do%>
 
-	<div class="comment-title"><%= comment.title %></div>
-	<hr>
-<%end %>
+			<div class="comment-form ">
+					<%= label_tag :title, 'Comment:', class: "col-sm-2 control-label" %>
+		      <div class="">
+		       <%= text_field_tag :title, params[:title], class: "form-control", placeholder: "Your Comment" %>
+		      </div>
+		      <%= hidden_field_tag :product_id, params[:product_id] = product.id %>
+		  </div>
+		<% end %>
+		<br>
+	</div>
+<% end %>
+
+<div>
+	<% @comments.each do |comment| %>
+	<div class="each-comment">
+		<%= link_to(image_tag(comment.user.image, class: "post-user-comment-image"), product.user.username) %>
+		<span class="red-color"><%= comment.user.username %></span>
+		<p class="comment-title" style="line-height: 2px"><%= comment.title %></p>
+		<hr style="margin-top: 5px; margin-bottom: 5px;">
+	</div>
+	<%end %>
 </div>

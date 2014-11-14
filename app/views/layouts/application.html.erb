@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sitehunt</title>
+  <title>TechTrend</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <header class="col-lg-12 col-md-12 col-sm-12">
-	<h1> Site Hunt </h1>
+	<div class="container  col-md-offset-1 col-md-4">
+		<a href="/"><h1 class="col-md-offset-1 site-title" >TechTrend</h1></a> 
+		<p class="subtitle">The Best New Indian Products Everyday</p>
+	</div>
 	<div class="links">
 		<% if signed_in? %>
-			<%= link_to 'Add a Product', new_product_path %>
-			<%=link_to 'Logout', '/logout' %>
+			<%= link_to 'Add a Product', new_product_path, class: "btn"%>
+			<%=link_to 'Logout', '/logout', class: "btn" %>
 		<% else %>
-			<%= link_to 'Login', '/auth/twitter' %>
+			<%= link_to 'Login With Twitter', '/auth/twitter', class: "btn btn-default" %>
 		<%end %>
 	</div>
 </header>
